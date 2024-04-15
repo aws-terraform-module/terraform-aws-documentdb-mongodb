@@ -45,7 +45,7 @@ variable "cluster_parameters" {
 
 variable "cluster_name" {
   type        = string
-  default     = "docdb3.6"
+  default     = "docdb"
   description = "The name of the DocumentDB cluster"
 }
 
