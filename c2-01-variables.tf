@@ -75,7 +75,7 @@ variable "preferred_backup_window" {
 
 variable "preferred_maintenance_window" {
   type        = string
-  default     = "Sun:2:00-Sun:3:00"
+  default     = "Sun:02:00-Sun:03:00"
   description = "The window to perform maintenance in. Syntax: `ddd:hh24:mi-ddd:hh24:mi`."
 }
 
