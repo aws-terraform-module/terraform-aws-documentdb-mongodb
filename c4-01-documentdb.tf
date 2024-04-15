@@ -12,7 +12,7 @@ resource "aws_docdb_subnet_group" "default" {
 
 # https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-parameter-group-create.html
 resource "aws_docdb_cluster_parameter_group" "default" {
-  name        = "documentdb-cluster-parameter-group"
+  name        = "docdb-pg-${var.cluster_family}"
   description = "DB cluster parameter group"
   family      = var.cluster_family
 
@@ -25,9 +25,6 @@ resource "aws_docdb_cluster_parameter_group" "default" {
     }
   }
   tags             = var.tags
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 
 resource "random_pet" "master_user_random" {
