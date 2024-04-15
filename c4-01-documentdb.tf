@@ -27,13 +27,13 @@ resource "aws_docdb_cluster_parameter_group" "default" {
   tags             = var.tags
 }
 
-resource "random_pet" "master_user" {
+resource "random_pet" "master_user_random" {
   count     = var.master_username == "" ? 1 : 0
   length    = 2
   separator = "-"
 }
 
-resource "random_password" "mq_application_password" {
+resource "random_password" "master_password_random" {
   count   = var.master_password == "" ? 1 : 0
   length  = 24
   special = false
@@ -41,8 +41,8 @@ resource "random_password" "mq_application_password" {
 
 resource "aws_docdb_cluster" "default" {
   cluster_identifier              = var.cluster_name
-  master_username                 = var.master_username != "" ? var.master_username : random_pet.master_user[0].id
-  master_password                 = var.master_password != "" ? var.master_password : random_password.password[0].result
+  master_username                 = var.master_username != "" ? var.master_username : random_pet.master_user_random[0].id
+  master_password                 = var.master_password != "" ? var.master_password : random_password.master_password_random[0].result
   backup_retention_period         = var.retention_period
   preferred_backup_window         = var.preferred_backup_window
   preferred_maintenance_window    = var.preferred_maintenance_window
