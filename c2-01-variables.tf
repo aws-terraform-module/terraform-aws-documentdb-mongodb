@@ -69,13 +69,13 @@ variable "retention_period" {
 
 variable "preferred_backup_window" {
   type        = string
-  default     = "07:00-09:00"
+  default     = "03:00-05:00"
   description = "Daily time range during which the backups happen"
 }
 
 variable "preferred_maintenance_window" {
   type        = string
-  default     = "Mon:22:00-Mon:23:00"
+  default     = "Sun:2:00-Sun:3:00"
   description = "The window to perform maintenance in. Syntax: `ddd:hh24:mi-ddd:hh24:mi`."
 }
 
