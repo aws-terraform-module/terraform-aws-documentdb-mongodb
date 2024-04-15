@@ -63,6 +63,7 @@ resource "aws_docdb_cluster" "default" {
   db_cluster_parameter_group_name = join("", aws_docdb_cluster_parameter_group.default[*].name)
   engine                          = var.engine_db
   engine_version                  = var.engine_version
+  allow_major_version_upgrade     = var.allow_major_version_upgrade
   enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
   tags                            = var.tags
 }

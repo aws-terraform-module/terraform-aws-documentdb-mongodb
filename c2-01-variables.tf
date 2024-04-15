@@ -184,7 +184,13 @@ variable "enable_performance_insights" {
 }
 
 variable "ca_cert_identifier" {
-  type        = string
+  type        = bool
   description = "The identifier of the CA certificate for the DB instance"
+  default     = false
+}
+
+variable "allow_major_version_upgrade" {
+  type        = string
+  description = "(Optional) A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version."
   default     = null
 }
