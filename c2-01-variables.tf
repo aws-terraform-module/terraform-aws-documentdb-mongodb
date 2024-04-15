@@ -81,11 +81,16 @@ variable "preferred_maintenance_window" {
 
 
 
-variable "final_snapshot_identifier" {
-  type        = string
-  description = "A final snapshot is taken for backup before deleting the cluster. This setting specifies the name for that snapshot, which is set to a lowercase version of the cluster identifier"
-  default     = ""
-}
+# variable "final_snapshot_identifier" {
+#   type        = string
+#   description = "A final snapshot is taken for backup before deleting the cluster. This setting specifies the name for that snapshot, which is set to a lowercase version of the cluster identifier"
+#   default     = ""
+
+#   validation {
+#     condition     = can(regex("^[a-zA-Z0-9-]+$", var.final_snapshot_identifier))
+#     error_message = "The final snapshot identifier must contain only alphanumeric characters and hyphens."
+#   }
+# }
 
 variable "skip_final_snapshot" {
   type        = bool
