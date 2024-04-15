@@ -29,7 +29,7 @@ resource "aws_docdb_cluster_parameter_group" "default" {
 
 resource "random_pet" "master_user_random" {
   count     = var.master_username == "" ? 1 : 0
-  length    = 2
+  length    = 1
   separator = "-"
 }
 
@@ -39,19 +39,9 @@ resource "random_password" "master_password_random" {
   special = false
 }
 
-resource "random_string" "master_user_random" {
-  count            = var.master_username == "" ? 1 : 0
-  length           = 1
-  special          = false
-  upper            = false
-  numeric          = true
-  lower            = true
-  override_special = "_"
-}
-
 resource "aws_docdb_cluster" "default" {
   cluster_identifier              = var.cluster_name
-  master_username                 = var.master_username != "" ? var.master_username : "${random_string.master_user_random[0].result}${random_pet.master_user_random[0].id}"
+  master_username                 = var.master_username != "" ? var.master_username : random_pet.master_user_random[0].id
   master_password                 = var.master_password != "" ? var.master_password : random_password.master_password_random[0].result
   backup_retention_period         = var.retention_period
   preferred_backup_window         = var.preferred_backup_window
