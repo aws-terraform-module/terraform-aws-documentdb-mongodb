@@ -143,7 +143,7 @@ variable "engine_db" {
 variable "engine_version" {
   type        = string
   default     = "3.6.0"
-  description = "The version number of the database engine to use"
+  description = "The version number of the database engine to us such as `3.6.0` or `5.0.0` "
 }
 
 variable "enabled_cloudwatch_logs_exports" {
