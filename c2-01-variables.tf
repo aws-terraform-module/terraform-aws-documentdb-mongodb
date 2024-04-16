@@ -177,9 +177,9 @@ variable "enable_performance_insights" {
 }
 
 variable "ca_cert_identifier" {
-  type        = bool
+  type        = string
   description = "The identifier of the CA certificate for the DB instance"
-  default     = false
+  default     = ""
 }
 
 variable "allow_major_version_upgrade" {
