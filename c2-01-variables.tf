@@ -1,9 +1,3 @@
-# AWS Region
-variable "aws_region" {
-  description = "Region in which AWS Resources to be created"
-  type = string
-}
-
 variable "vpc_id" {
   type        = string
   description = "VPC ID to create the cluster in (e.g. `vpc-a22222ee`)"
