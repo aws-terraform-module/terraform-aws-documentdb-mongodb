@@ -1,5 +1,7 @@
 # terraform-aws-documentdb-mongodb
 Install MongoDB on AWS
+[https://registry.terraform.io/modules/mrnim94/documentdb-mongodb/aws/latest](https://registry.terraform.io/modules/mrnim94/documentdb-mongodb/aws/latest)
+
 
 ## Provide VPC ID and subnet IDs via data sources: "aws_vpc and aws_subnets".
 
