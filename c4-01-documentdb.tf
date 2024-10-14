@@ -4,7 +4,7 @@ resource "aws_kms_key" "documemtdb" {
 }
 
 resource "aws_docdb_subnet_group" "default" {
-  name        = "document-subnet-group"
+  name        = "${var.cluster_name}-subnet-group"
   description = "Allowed subnets for DB cluster instances"
   subnet_ids  = var.subnet_ids
   tags        = var.tags
@@ -12,7 +12,7 @@ resource "aws_docdb_subnet_group" "default" {
 
 # https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-parameter-group-create.html
 resource "aws_docdb_cluster_parameter_group" "default" {
-  name        = "docdb-pg-${lower(replace(var.cluster_family, "/[^a-z0-9-]/", ""))}"
+  name        = "${var.cluster_name}-pg-${lower(replace(var.cluster_family, "/[^a-z0-9-]/", ""))}"
   description = "DB cluster parameter group"
   family      = var.cluster_family
 
