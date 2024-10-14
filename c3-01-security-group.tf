@@ -1,6 +1,6 @@
 resource "aws_security_group" "default" {
-  name        = "documentdb-secgroup"
-  description = "Security Group for DocumentDB cluster"
+  name        = "${var.cluster_name}-security-group"
+  description = "Security Group for ${var.cluster_name} cluster"
   vpc_id      = var.vpc_id
   tags        = var.tags
 }
