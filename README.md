@@ -79,6 +79,10 @@ Obtain the specific Snapshot ARN from the old DocumentDB and enter it as the `sn
 
 ![](https://raw.githubusercontent.com/mrnim94/terraform-aws-documentdb-mongodb/sec-group-follow-db-name/docs/picture/2024-10-17_16-49.png)
 
+You must know the Document's username to declare it in the Terraform module.
+
+![](https://raw.githubusercontent.com/mrnim94/terraform-aws-documentdb-mongodb/sec-group-follow-db-name/docs/picture/2024-10-18_14-43.png)
+
 ```plaintext
 ....
 
@@ -96,5 +100,8 @@ module "documentdb-mongodb-restored" {
   cluster_size = 1
   allowed_cidr_blocks = [data.aws_vpc.selected.cidr_block]
   snapshot_identifier = "arn:aws:rds:us-west-2:043701111869:cluster-snapshot:rds:mongodb-2024-10-12-03-13"
+  master_username = "tarpon"
 }
 ```
+
+When creating a new DocumentDB from the completed snapshot, you must use a username and password to log in.
