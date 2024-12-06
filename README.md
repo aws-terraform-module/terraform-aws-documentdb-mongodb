@@ -12,7 +12,7 @@ Terraform Link:
 ```plaintext
 data "aws_vpc" "selected" {
   tags = {
-    Name = "dev-mdcl-mdaas-engine" # Replace with your VPC's tag name
+    Name = "dev-nim-engine" # Replace with your VPC's tag name
   }
 }
 
