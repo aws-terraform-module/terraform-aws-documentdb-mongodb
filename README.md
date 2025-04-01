@@ -3,7 +3,7 @@
 Install MongoDB on AWS
 
 Terraform Link:  
-[https://registry.terraform.io/modules/mrnim94/documentdb-mongodb/aws/latest](https://registry.terraform.io/modules/mrnim94/documentdb-mongodb/aws/latest)
+[https://registry.terraform.io/modules/aws-terraform-module/documentdb-mongodb/aws/latest](https://registry.terraform.io/modules/aws-terraform-module/documentdb-mongodb/aws/latest)
 
 ## Provide VPC ID and subnet IDs via data sources: "aws\_vpc and aws\_subnets".
 
@@ -30,7 +30,7 @@ data "aws_subnets" "private_networks" {
 
 
 module "documentdb-mongodb" {
-  source  = "mrnim94/documentdb-mongodb/aws"
+  source  = "aws-terraform-module/documentdb-mongodb/aws"
   version = "1.1.0"
   vpc_id = data.aws_vpc.selected.id
   subnet_ids = data.aws_subnets.private_networks.ids
@@ -58,7 +58,7 @@ data "terraform_remote_state" "network" {
 }
 
 module "documentdb-mongodb" {
-  source  = "mrnim94/documentdb-mongodb/aws"
+  source  = "aws-terraform-module/documentdb-mongodb/aws"
   version = "1.1.0"
   vpc_id = data.terraform_remote_state.network.outputs.vpc_id
   subnet_ids = data.terraform_remote_state.network.outputs.private_subnets
@@ -87,7 +87,7 @@ You must know the Document's username to declare it in the Terraform module.
 ....
 
 module "documentdb-mongodb-restored" {
-  source  = "mrnim94/documentdb-mongodb/aws"
+  source  = "aws-terraform-module/documentdb-mongodb/aws"
   version = "1.1.0"
   vpc_id = data.aws_vpc.selected.id
   subnet_ids = data.aws_subnets.private_networks.ids
